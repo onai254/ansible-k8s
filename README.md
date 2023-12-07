@@ -1,2 +1,2 @@
 # ansible-linode
-Provisioning a linode server using ansible
+Provisioning a linode Virtual machies and installing the lettest version of kubernetes, Helm and Argocd using ansible
