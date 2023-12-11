@@ -1,4 +1,4 @@
-[linodes]
-172.232.62.108 ansible_user=root
-172.233.48.177 ansible_user=root
+[master]
+172.104.202.67 ansible_user=ansible
+
 

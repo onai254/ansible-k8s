@@ -1,0 +1,35 @@
+---
+- hosts: master
+  become: true
+  tasks:
+    - name: Update package lists
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist
+        autoremove: yes
+
+    - name: Update kernel and other system components
+      apt:
+        full_upgrade: yes
+        autoremove: yes
+
+    - name: Reboot the server if necessary
+      reboot:
+        reboot_timeout: 60
+      when: kernel_needs_reboot
+
+- name: Verify updates installed
+  hosts: master
+  become: false
+  tasks:
+    - name: Check for updates available
+      apt:
+        check_update: yes
+      register: updates_available
+
+    - name: Display message about updates
+      debug:
+        msg: "Updates available: {{ updates_available.stdout }}"
