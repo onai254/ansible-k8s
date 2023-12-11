@@ -1,0 +1,7 @@
+# This playbook deploys all site configs
+- name: Install Kubeadm kubelet
+  hosts: all
+  remote_user: root
+  
+  roles:
+  - base

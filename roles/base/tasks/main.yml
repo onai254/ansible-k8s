@@ -1,0 +1,31 @@
+# This playbook contains base play for all nodes
+- name: Install Docker GPG key
+  apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+- name: Add Docker repository
+  apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+- name: Update apt cache
+  apt:
+      update_cache: yes
+      cache_valid_time: 3600
+
+- name: Install Docker CE
+  apt:
+    name: docker-ce
+    state: present
+
+- name: Enable and start Docker service
+  systemd:
+    name: docker
+    enabled: yes
+    state: started
+
+
+
+
+
