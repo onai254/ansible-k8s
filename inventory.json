@@ -1,0 +1,41 @@
+{
+    "_meta": {
+        "hostvars": {
+            "170.187.187.19": {
+                "ansible_user": "root"
+            },
+            "172.232.220.234": {
+                "ansible_user": "root"
+            },
+            "172.232.56.88": {
+                "ansible_user": "root"
+            },
+            "172.233.49.246": {
+                "ansible_user": "root"
+            },
+            "172.234.120.29": {
+                "ansible_user": "root"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "ungrouped",
+            "master",
+            "worker"
+        ]
+    },
+    "master": {
+        "hosts": [
+            "172.234.120.29",
+            "172.233.49.246"
+        ]
+    },
+    "worker": {
+        "hosts": [
+            "172.232.220.234",
+            "172.232.56.88",
+            "170.187.187.19"
+        ]
+    }
+}

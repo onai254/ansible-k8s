@@ -1,0 +1,17 @@
+- name: Update Everything on Ubuntu
+  hosts: all
+  become: yes  # Run tasks with elevated privileges (sudo)
+
+  tasks:
+    - name: Update package lists
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: yes
+        autoremove: yes
+
+    - name: Clean up package cache
+      apt:
+        autoclean: yes
