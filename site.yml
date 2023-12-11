@@ -1,7 +1,14 @@
 # This playbook deploys all site configs
-- name: Install Kubeadm kubelet
+- name: Install Kubeadm kubelet docker
   hosts: all
   remote_user: root
-  
+
   roles:
   - base
+
+- name: Install kubectl to master nodes
+  hosts: master
+  remote_user: root
+
+  roles:
+    -  master
