@@ -36,6 +36,15 @@
         repo: deb [arch=amd64] https://apt.kubernetes.io/ kubernetes-xenial main
         state: present
 
+- name: Install kubelet package
+  apt:
+    name: kubelet
+    state: present
+
+- name: Install kubeadm package
+  apt:
+    name: kubeadm
+    state: present
 
 
 
