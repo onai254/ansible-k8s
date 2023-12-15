@@ -41,6 +41,12 @@
     name: kubelet
     state: present
 
+- name: Enable and start kubelet service
+  systemd:
+    name: kubelet
+    enabled: yes
+    state: started
+
 - name: Install kubeadm package
   apt:
     name: kubeadm
